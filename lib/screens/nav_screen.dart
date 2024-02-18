@@ -4,7 +4,7 @@ import 'package:youtube/data.dart';
 import 'package:youtube/screens/home_screen.dart';
 import 'package:youtube/screens/video_screen.dart';
 import 'package:miniplayer/miniplayer.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 
 final selectedVideoProvider = StateProvider<Video?>((ref) => null);
 
@@ -152,17 +152,25 @@ class _NavScreenState extends State<NavScreen> {
         onTap: (i) => setState(() => _selectedIndex = i),
         selectedFontSize: 10.0,
         unselectedFontSize: 10.0,
-        items: const [
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
             activeIcon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.explore_outlined),
-            activeIcon: Icon(Icons.explore),
-            label: 'Explore',
-          ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/youtube_shorts_icon.svg',
+                width: 24,
+                height: 24,
+              ),
+              activeIcon: SvgPicture.asset(
+                'assets/youtube_shorts_icon.svg',
+                width: 24,
+                height: 24,
+              ),
+              label: 'Shorts',
+            ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add_circle_outline),
             activeIcon: Icon(Icons.add_circle),
