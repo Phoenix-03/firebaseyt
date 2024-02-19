@@ -6,8 +6,20 @@ import 'package:youtube/login.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(ProviderScope(child: MyApp()));
+  try {
+        await Firebase.initializeApp(
+          options: FirebaseOptions(
+            apiKey: "AIzaSyAyMitBa5a5qF9SSVLyeeu3aZUce_f_y3c", // paste your api key here
+            appId: "1:702995124628:android:119b3a052e863e5f757f81", //paste your app id here
+            messagingSenderId: "702995124628", //paste your messagingSenderId here
+            projectId: "ytclone-87bbb", //paste your project id here
+          ),
+    );
+    runApp(MyApp());
+  } catch (e) {
+    print('Error initializing Firebase: $e');
+    // Handle the error gracefully, possibly show an error dialog or fallback screen
+  }
 }
 
 class MyApp extends StatelessWidget {
