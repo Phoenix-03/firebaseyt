@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:youtube/data.dart';
 import 'package:youtube/screens/home_screen.dart';
+import 'package:youtube/screens/home_page.dart';
 import 'package:youtube/screens/video_screen.dart';
 import 'package:miniplayer/miniplayer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,7 +26,7 @@ class _NavScreenState extends State<NavScreen> {
 
   final _screens = [
     HomeScreen(),
-    const Scaffold(body: Center(child: Text('Explore'))),
+    HomePage(),
     const Scaffold(body: Center(child: Text('Add'))),
     const Scaffold(body: Center(child: Text('Subscriptions'))),
     const Scaffold(body: Center(child: Text('Library'))),
@@ -149,7 +150,15 @@ class _NavScreenState extends State<NavScreen> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
-        onTap: (i) => setState(() => _selectedIndex = i),
+        onTap: (i) {
+          setState(() => _selectedIndex = i);
+          if (i == 1) { // Check if Shorts button is tapped
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          }
+        },
         selectedFontSize: 10.0,
         unselectedFontSize: 10.0,
         items: [

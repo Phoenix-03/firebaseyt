@@ -113,3 +113,63 @@ final List<Video> suggestedVideos = [
     dislikes: '85',
   ),
 ];
+
+class YTData {
+  var filter = [
+    'Explore',
+    'All',
+    'Conversation',
+    'Comedy',
+    'Humans',
+    'Universe',
+    'Games',
+    'Flutter',
+    'Candy',
+    'Music',
+    'Mixes',
+    'Painting',
+    'Aircrafts',
+    'Recently Uploaded',
+    'Live'
+  ];
+
+  var shortsList = {
+    0: [
+      'Happy',
+      'images/smiley.jpg',
+      'https://assets.mixkit.co/videos/preview/mixkit-young-mother-with-her-little-daughter-decorating-a-christmas-tree-39745-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-mother-with-her-little-daughter-eating-a-marshmallow-in-nature-39764-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-winter-fashion-cold-looking-woman-concept-video-39874-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-womans-feet-splashing-in-the-pool-1261-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4'
+
+          'The glittering but calm water reminds me of sanity',
+      '20M',
+      '20K',
+    ],
+    1: [
+      'Abby Gale',
+      'images/woman1.png',
+      'images/rubiksCube.gif',
+      'Awesome rubiks cube',
+      '2.5K',
+      '100',
+    ],
+    2: [
+      'Roufus',
+      'images/cat.jpg',
+      'images/minions.gif',
+      'Minions are ❤',
+      '50M',
+      '10K'
+    ],
+    3: [
+      'The Stargazer',
+      'images/profile_pic2.jpg',
+      'images/universe.gif',
+      'Life in an alternate universe',
+      '10M',
+      '30K',
+    ]
+  };
+}
