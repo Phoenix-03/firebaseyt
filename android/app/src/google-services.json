@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "702995124628",
+    "project_id": "ytclone-87bbb",
+    "storage_bucket": "ytclone-87bbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702995124628:android:119b3a052e863e5f757f81",
+        "android_client_info": {
+          "package_name": "com.example.youtube"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702995124628-2pgp3re7tr9rn8nkr2aoqdvg0cgn5j9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.youtube",
+            "certificate_hash": "45a137c228e57d3564de92eb52ac53b46b274b54"
+          }
+        },
+        {
+          "client_id": "702995124628-b5ic8mj3m2tnvqr93biogrmf727ammg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyMitBa5a5qF9SSVLyeeu3aZUce_f_y3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702995124628-b5ic8mj3m2tnvqr93biogrmf727ammg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
