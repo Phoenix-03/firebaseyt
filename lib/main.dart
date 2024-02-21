@@ -15,7 +15,7 @@ void main() async{
             projectId: "ytclone-87bbb", //paste your project id here
           ),
     );
-    runApp(MyApp());
+        runApp(ProviderScope(child: MyApp()));
   } catch (e) {
     print('Error initializing Firebase: $e');
     // Handle the error gracefully, possibly show an error dialog or fallback screen
@@ -34,7 +34,8 @@ class MyApp extends StatelessWidget {
         bottomNavigationBarTheme:
         const BottomNavigationBarThemeData(selectedItemColor: Colors.white),
       ),
-      home: const GoogleSignInScreen(),
+      home: GoogleSignInScreen(),
     );
   }
+
 }
