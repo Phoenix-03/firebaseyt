@@ -4,7 +4,7 @@ import 'package:youtube/data.dart';
 import 'package:youtube/screens/nav_screen.dart';
 import 'package:youtube/widgets/widgets.dart';
 import 'package:miniplayer/miniplayer.dart';
-
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoScreen extends StatefulWidget {
   @override
@@ -12,16 +12,28 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
+  YoutubePlayerController? _controller;
   ScrollController? _scrollController;
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
+
+    _controller = YoutubePlayerController(
+      initialVideoId: 'Tb9k9_Bo-G4',
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: true,
+        isLive: false,
+        controlsVisibleAtStart: true
+      ),
+    );
   }
 
   @override
   void dispose() {
+    _controller?.dispose();
     _scrollController?.dispose();
     super.dispose();
   }
@@ -29,10 +41,6 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context
-          .read(miniPlayerControllerProvider)
-          .state
-          .animateToHeight(state: PanelState.MAX),
       child: Scaffold(
         body: Container(
           color: Theme.of(context).scaffoldBackgroundColor,
@@ -49,12 +57,22 @@ class _VideoScreenState extends State<VideoScreen> {
                         children: [
                           Stack(
                             children: [
-                              Image.network(
-                                selectedVideo!.thumbnailUrl,
-                                height: 220.0,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
+                                YoutubePlayer(
+                                  controller: YoutubePlayerController(
+                                    initialVideoId: selectedVideo!.id,
+                                    flags: YoutubePlayerFlags(
+                                      autoPlay: true,
+                                      mute: false,
+                                      hideThumbnail: true,
+                                    ),
+                                  ),
+                                  showVideoProgressIndicator: true,
+                                  progressIndicatorColor: Colors.amber,
+                                  progressColors: ProgressBarColors(
+                                    playedColor: Colors.amber,
+                                    handleColor: Colors.amberAccent,
+                                  ),
+                                ),
                               IconButton(
                                 iconSize: 30.0,
                                 icon: const Icon(Icons.keyboard_arrow_down),
@@ -65,12 +83,7 @@ class _VideoScreenState extends State<VideoScreen> {
                               ),
                             ],
                           ),
-                          const LinearProgressIndicator(
-                            value: 0.4,
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              Colors.red,
-                            ),
-                          ),
+
                           VideoInfo(video: selectedVideo),
                         ],
                       ),

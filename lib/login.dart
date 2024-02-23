@@ -29,7 +29,7 @@ class _GoogleSignInScreenState extends State<GoogleSignInScreen> {
               ),
               child: IconButton(
                 iconSize: 40,
-                icon: Image.asset('assets/images/google_icon.png'),
+                icon: Image.asset('assets/google_icon.png'),
                 onPressed: () async {
                   dynamic result = await signInWithGoogle();
                   if (result != null) {

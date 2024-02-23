@@ -1,3 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:youtube/screens/profile_screen.dart';
+
 class User {
   final String username;
   final String profileImageUrl;
@@ -9,6 +13,9 @@ class User {
     required this.subscribers,
   });
 }
+
+
+
 
 const User currentUser = User(
   username: 'Marcus Ng',

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OptionsScreen extends StatefulWidget {
@@ -9,7 +10,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
   bool isSubscribed = false;
   Color myGreyColor = Color.fromRGBO(169, 169, 169, 0.5); // Adjust the opacity by changing the last value (0.5 in this example)
   bool isLike = false;
-  bool Dislike = false;
+  bool isDislike = false;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                           Icon(
                             Icons.thumb_up,
                             color: isLike ? Colors.blue : Colors.white,
-                            size: 30,
+                            size: 25,
                           ),
                           SizedBox(
                             height: 10,
@@ -98,16 +99,112 @@ class _OptionsScreenState extends State<OptionsScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Icon(Icons.comment_rounded),
-                  Text('1123'),
-                  SizedBox(height: 20),
-                  Transform(
-                    transform: Matrix4.rotationZ(5.8),
-                    child: Icon(Icons.send),
+                  SizedBox(
+                    height: 28,
                   ),
-                  SizedBox(height: 50),
-                  Icon(Icons.more_vert),
+                  GestureDetector(
+                  onTap: () {
+                  setState(() {
+                  isDislike = !isDislike;
+                  });
+                  },
+                  child: Container(
+                  child: Column(
+                  children: [
+                  Icon(
+                  Icons.thumb_down,
+                  color: isDislike ? Colors.blue : Colors.white,
+                  size: 25,
+                  ),
+                  SizedBox(
+                  height: 10,
+                  ),
+                  Text(
+                  '10k',
+                  style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  ),
+                  ),
+                  ],
+                  ),
+                  ),
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
+
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.message_rounded,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            '1123',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 28),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            CupertinoIcons.arrowshape_turn_up_right_fill,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Share',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 36,
+                    width: 36,
+                    color: Colors.white,
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Container(
+                            height: 32,
+                            width: 32,
+                            child: Image.asset(
+                              'assets/music_bar.gif',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
                 ],
               )
             ],
